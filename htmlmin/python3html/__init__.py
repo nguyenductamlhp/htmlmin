@@ -104,7 +104,8 @@ def _replace_charref(s):
         else:
             num = int(s[1:].rstrip(';'))
         if num in _invalid_charrefs:
-            return _invalid_charrefs[num]
+            # return _invalid_charrefs[num]
+            return '\uFFFD'
         if 0xD800 <= num <= 0xDFFF or num > 0x10FFFF:
             return '\uFFFD'
         if num in _invalid_codepoints:
